@@ -1,0 +1,290 @@
+﻿<krpano version="1.22" title="Virtual Tour">
+
+	<include url="skin/vtourskin.xml" />
+	
+	<plugin name="soundinterface" url="plugins/soundinterface.js" />
+	
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="false"
+	               followmousecontrol="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext=""
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+	
+	
+	<scene name="scene_CourtyardPanoFinal" title="CourtyardPanoFinal" onstart="set(volume, 1.0);" thumburl="panos/CourtyardPanoFinal.tiles/thumb.jpg" lat="" lng="" alt="" heading="" soundurl="%CURRENTXML%/audio/chirp.mp3">
+		
+		<control bouncinglimits="true" />
+
+		<view hlookat="-443.283" vlookat="0.640" fovtype="MFOV" fov="120.0" maxpixelzoom="2.0" fovmin="36.638998" fovmax="140.0" limitview="range" hlookatmin="-180.0" hlookatmax="180.0" vlookatmin="38.666667" vlookatmax="-60.666667"/>
+
+		<preview url="panos/CourtyardPanoFinal.tiles/preview.jpg" />
+
+		<image prealign="0|0|0">
+			<cube url="panos/CourtyardPanoFinal.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
+		</image>
+
+		
+
+
+		<hotspot name="statue_info"
+		style="skin_hotspotstyle" 
+		ath="-83.54" 
+		atv="-10.0" 
+		depth="1000.0" 
+		alpha = "0.5" 
+		onover="tween(alpha,1.0);" 
+		onout="tween(alpha,0.5);" 
+		onclick="
+		trace('Trying to load: audio/blip.mp3'); playsound('testsound', 'audio/blip.mp3', false);
+		set(layer['labelText'].visible, true);
+		set(layer['imageLayer'].visible, true);" />
+
+		<hotspot name="berry_info" 
+		style="skin_hotspotstyle" 
+		ath="-122.04" 
+		atv="-14.844" 
+		depth="1000.0"
+		alpha = "0.5"
+		onover="tween(alpha,1.0);" 
+		onout="tween(alpha,0.5);"
+		onclick="
+		set(layer['berryText'].visible, true);
+		set(layer['imageLayer'].visible, true);
+		set(layer['berryImage'].visible, true)
+		"
+
+		 />
+		
+		<hotspot name="outisde_sac_info"
+		style="skin_hotspotstyle" 
+		ath="58.088" 
+		atv="-4.353" 
+		depth="1000.0" 
+		alpha = "0.5"
+		onover="tween(alpha,1.0);" 
+		onout="tween(alpha,0.5);"
+		onclick="
+		set(layer['sacText'].visible, true);
+		set(layer['imageLayer'].visible, true);
+		set(layer['sacImage'].visible, true)
+		"
+		 />
+
+		<layer name="labelText" 
+		type="text" 
+		text=" This is a statue of [b] Saint Rita [/b] who was an Augustinian nun who upheld and valued Augustinian principles that we cherish here at Villanova. [br][br] 'Born at Roccaporena in central Italy, Rita wanted to become a nun but was pressured at a young age into marrying a harsh and cruel man. During her 18-year marriage, she bore and raised two sons. After her husband was killed in a brawl and her sons had died, Rita tried to join the Augustinian nuns in Cascia. Unsuccessful at first because she was a widow, Rita eventually succeeded. Over the years, her austerity, prayerfulness, and charity became legendary. When she developed wounds on her forehead, people quickly associated them with the wounds from Christ’s crown of thorns. She meditated frequently on Christ’s passion. Her care for the sick nuns was especially loving. She also counseled lay people who came to her monastery. Beatified in 1626, Rita was not canonized until 1900. She has acquired the reputation, together with Saint Jude, as a saint of impossible cases. Many people visit her tomb each year'. [br][br] [b] Citation: [/b]https://www.franciscanmedia.org/saint-of-the-day/saint-rita-of-cascia/" 
+		x="650" 
+		y="0" 
+		width="270" 
+		height="600" 
+		align="center"  
+		css = "font-family:Times New Roman; font-size:15px; color:#0xFFFFFF"
+       	background="true" 
+		bgcolor="0xD3D3D3" 
+		bgborder="2" 
+		bordercolor="0xD3D3D3" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['labelText'].visible, false);"
+			 />
+
+
+		<layer name="berryText" 
+		type="text" 
+		text=" The fruit growing here is [b] Red Elderberries [/b] [br][br] 'Red Elderberry is native to Europe, temperate Asia, and North America.  It is found throughout most of the United States and Canada, excluding only the far north of Canada and Alaska, and the central and southern United States.' [br] [br] 'It grows in moist sites; shady or open forests, streambanks, and moist clearings. Wetland designation: FACU, it usually occurs in non-wetlands but occasionally is found in wetlands.' [br] [br] [b] Citation: [/b] https://nativeplantspnw.com/red-elderberry-sambucus-racemosa/ "
+		x="650" 
+		y="0" 
+		width="270" 
+		height="600" 
+		align="center"  
+		css = "font-family:Times New Roman; font-size:15px; color:#0xFFFFFF"
+       	background="true" 
+		bgcolor="0xD3D3D3" 
+		bgborder="2" 
+		bordercolor="0xD3D3D3" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['berryText'].visible, false)
+		set(layer['berryImage'].visible, false);"
+		/>
+
+		<layer name="sacText" 
+		type="text" 
+		text="This building is located right next to the [b] Mendel Science Center[/b], named after Gregor Mendel. [br][br] [b]Who was Gregor Mendel?[/b] [br]'Mendel established two principles of heredity that are now known as the law of segregation and the law of independent assortment, thereby proving the existence of paired elementary units of heredity and establishing the statistical laws governing them.  He became the first to understand the importance of a statistical investigation and to apply a knowledge of mathematics to a biological problem.' [br][br] [b]Citation:[/b] https://www1.villanova.edu/villanova[br]/president/university_events/mendelmedal[br]/aboutmendel.html "
+		x="650" 
+		y="0" 
+		width="270" 
+		height="600" 
+		align="center"  
+		css = "font-family:Times New Roman; font-size:15px; color:#0xFFFFFF"
+       	background="true" 
+		bgcolor="0xD3D3D3" 
+		bgborder="2" 
+		bordercolor="0xD3D3D3" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['sacText'].visible, false);
+		set(layer['sacImage'].visible, false);"
+		/>
+		<!---Border Image-> -->
+
+		<layer name="imageLayer" 
+		type="image" 
+		url="images/border.png" 
+		x="1295" 
+		y="90" 
+		width="390" 
+		height="750" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['labelText'].visible, false);
+		set(layer['berryText'].visible, false);
+		set(layer['berryImage'].visible, false);
+		set(layer['sacText'].visible, false);
+		set(layer['sacImage'].visible, false);"
+		 />
+
+		<layer name="berryImage" 
+		type="image" 
+		url="images/RedElderBerry.png" 
+		x="1390" 
+		y="500" 
+		width="200" 
+		height="200" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['berryImage'].visible, false);
+		set(layer['berryText'].visible, false);" />
+
+		<layer name="sacImage" 
+		type="image" 
+		url="images/Mendel.jpg" 
+		x="1385" 
+		y="550" 
+		width="200" 
+		height="180" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['sacImage'].visible, false);
+		set(layer['sacText'].visible, false);" />
+
+		<layer name="infoButton" 
+		type="image" 
+		url="images/info.png" 
+		x="1590" y="20" 
+		width="75" 
+		height="75" 
+		visible="true" 
+		alpha = "0.5" 
+		onover="
+		tween(alpha,1.0);
+		tween(scale,1.1);" 
+		onout="
+		tween(alpha,0.5);
+		tween(scale,1.0);" 
+		onclick="
+		set(layer['infoText'].visible, true);
+		set(layer['plantborderImage'].visible, true);" />
+
+		<layer name="infoText" 
+		type="text" 
+		text="[b] Welcome to the SAC garden! [/b] [br] This is a garden located right in the middle of the Saint Augustine Center. This place is typically used for studying by students. [br] [br] [b]Who Was Saint Augustine?[/b][br] 'Born on November 13, 354 in the North African town of Thagaste (present day Souk-Ahras, Algeria), Augustine was one of at least three children of Monica, a Christian, and Patricius, a pagan.  While he was raised in a Christian household, modeled by a very devout mother, Augustine was not baptized as a child, as infant baptism had not been customary at the time of his birth.' [br] [br] 'Augustine was bright and formally educated in Carthage, where he studied rhetoric.  He was enamored with the power of words and the ability to persuade with words, and eventually moved to Rome to teach rhetoric, then took a posting in Milan where he worked in the imperial court.' [br] [br] [br] [br] [b] Citation: [/b] https://www1.villanova.edu/university/mission-ministry/catholic-augustinian/st-augustine.html" 
+       	x="15" 
+		y="-185" 
+		width="500" 
+		height="340" 
+		align="center"  
+		css = "font-family:Times New Roman; font-size:14px; color:#0xFFFFFF"
+       	background="true" 
+		bgcolor="0x77D18F" 
+		bgborder="0" 
+		bordercolor="0x063312" 
+		visible="false" 
+		alpha = "1" 
+		html="true"
+		 onclick=""
+			 />
+
+		<layer name="plantborderImage" 
+		type="image" 
+		url="images/plantborder.png" 
+		x="540" 
+		y="70" 
+		width="630" 
+		height="460" 
+		visible="false" 
+		zorder = "10" 
+		onclick="
+		set(layer['plantborderImage'].visible, false);
+		set(layer['infoText'].visible, false);" />
+
+	</scene>
+
+</krpano>

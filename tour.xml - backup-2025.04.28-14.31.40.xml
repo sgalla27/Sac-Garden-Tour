@@ -1,0 +1,186 @@
+﻿<krpano version="1.22" title="Virtual Tour">
+
+	<include url="skin/vtourskin.xml" />
+	
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="false"
+	               followmousecontrol="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext=""
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+	
+	
+	
+	<scene name="scene_CourtyardPanoFinal" title="CourtyardPanoFinal" onstart="" thumburl="panos/CourtyardPanoFinal.tiles/thumb.jpg" lat="" lng="" alt="" heading="" soundurl="%CURRENTXML%/audio/chirp.mp3">
+		
+		<control bouncinglimits="true" />
+
+		<view hlookat="-443.283" vlookat="0.640" fovtype="MFOV" fov="120.0" maxpixelzoom="2.0" fovmin="36.638998" fovmax="140.0" limitview="range" hlookatmin="-180.0" hlookatmax="180.0" vlookatmin="38.666667" vlookatmax="-60.666667"/>
+
+		<preview url="panos/CourtyardPanoFinal.tiles/preview.jpg" />
+
+		<image prealign="0|0|0">
+			<cube url="panos/CourtyardPanoFinal.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
+		</image>
+
+		
+
+
+		<hotspot name="label"
+		style="skin_hotspotstyle" 
+		ath="-83.54" 
+		atv="-10" 
+		depth="1000.0" 
+		alpha = "0.5" 
+		onover="tween(alpha,1.0);" 
+		onout="tween(alpha,0.5);" 
+		onclick="
+		set(layer['labelText'].visible, true);
+		set(layer['imageLayer'].visible, true);" />
+
+		<layer name="labelText" 
+		type="text" 
+		text=" This is a statue of [b] Saint Rita [/b] who was an Augustinian nun who upheld and valued Augustinian principles that we cherish here at Villanova. [br][br] 'Born at Roccaporena in central Italy, Rita wanted to become a nun but was pressured at a young age into marrying a harsh and cruel man. During her 18-year marriage, she bore and raised two sons. After her husband was killed in a brawl and her sons had died, Rita tried to join the Augustinian nuns in Cascia. Unsuccessful at first because she was a widow, Rita eventually succeeded. Over the years, her austerity, prayerfulness, and charity became legendary. When she developed wounds on her forehead, people quickly associated them with the wounds from Christ’s crown of thorns. She meditated frequently on Christ’s passion. Her care for the sick nuns was especially loving. She also counseled lay people who came to her monastery. Beatified in 1626, Rita was not canonized until 1900. She has acquired the reputation, together with Saint Jude, as a saint of impossible cases. Many people visit her tomb each year'. [br][br] (https://www.franciscanmedia.org/saint-of-the-day/saint-rita-of-cascia/)" 
+		x="650" 
+		y="0" 
+		width="270" 
+		height="600" 
+		align="center"  
+		css = "font-family:Times New Roman; font-size:15px; color:#0xFFFFFF"
+       	background="true" 
+		bgcolor="0xD3D3D3" 
+		bgborder="2" 
+		bordercolor="0xD3D3D3" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['labelText'].visible, false);"
+			 />
+		<!---Border Image-> -->
+
+		<layer name="imageLayer" 
+		type="image" 
+		url="images/border.png" 
+		x="1295" 
+		y="90" 
+		width="390" 
+		height="750" 
+		visible="false" 
+		onclick="
+		set(layer['imageLayer'].visible, false);
+		set(layer['labelText'].visible, false);" />
+
+		<layer name="infoButton" 
+		type="image" 
+		url="images/info.png" 
+		x="1590" y="20" 
+		width="75" 
+		height="75" 
+		visible="true" 
+		alpha = "0.5" 
+		onover="
+		tween(alpha,1.0);
+		tween(scale,1.1);" 
+		onout="
+		tween(alpha,0.5);
+		tween(scale,1.0);" 
+		onclick="
+		set(layer['infoText'].visible, true);
+		set(layer['plantborderImage'].visible, true);" />
+
+		<layer name="infoText" 
+		type="text" 
+		text="[b] Welcome [/b] to the SAC gardens! [br][br] This is a garden located right in the middle of the Saint Augustine Center. This place is typically used for studying by students as it is surrounded by the walls of the Saint Augustine Center building allowing one to get some fresh air while having some shady spots." 
+       	x="15" 
+		y="-300" 
+		width="500" 
+		height="170" 
+		align="center"  
+		css = "font-family:Times New Roman; font-size:18px; color:#0xFFFFFF"
+       	background="true" 
+		bgcolor="0x77D18F" 
+		bgborder="0" 
+		bordercolor="0x063312" 
+		visible="false" 
+		alpha = "1" 
+		html="true"
+		 onclick=""
+			 />
+
+		<layer name="plantborderImage" 
+		type="image" 
+		url="images/plantborder.png" 
+		x="540" 
+		y="70" 
+		width="630" 
+		height="230" 
+		visible="false" 
+		zorder = "10" 
+		onclick="
+		set(layer['plantborderImage'].visible, false);
+		set(layer['infoText'].visible, false);" />
+
+	</scene>
+
+</krpano>
